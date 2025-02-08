@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #121212;
+            color: #ffffff;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background-color: #1e1e1e;
+        }
+        th, td {
+            border: 1px solid #444;
+            padding: 8px;
+            text-align: left;
+            color: #ffffff;
+        }
+        th {
+            background-color: #333;
+            cursor: pointer;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #444;
+            background-color: #1e1e1e;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <h2>Database Table [Location: India, New Delhi]</h2>
+    <input type="text" id="searchBar" placeholder="Search for records.." onkeyup="searchTable()">
+    <table id="databaseTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>ID</th>
+                <th>Access</th>
+                <th>Network</th>
+                <th>Status</th>
+                <th>Permissions</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        function generateUniqueData() {
+            const names = ["Aarav", "Vihaan", "Kabir", "Ananya", "Ishaan", "Riya", "Saanvi", "Aryan", "Tanvi", "Neha", "Deepti", "Sneha", "Eakta", "Bhupender", "Aditya", "Vicky", "Raghav", "Himanshu", "Aakash", "Kunal", "Harsh", "Daksh", "Kanish", "Siddharth", "Yash", "Karan", "Aman", "Rahul", "Shubham", "Khushboo", "Simran", "Bhawna", "Diksha", "Aastha", "Pallavi", "Bhupinder", "Tannu", "Muskaan", "Komal", "Sunaina", "Harshita", "Ritika", "Aditi", "Rupali", "Khushi", "Sapna", "Garima"];
+            const surnames = ["Sharma", "Verma", "Iyer", "Reddy", "Chopra", "Das", "Gupta", "Patel", "Singh", "Nair", "Jain"];
+            
+            let tableBody = document.querySelector("#databaseTable tbody");
+            let data = [];
+            
+            names.forEach(firstName => {
+                surnames.forEach(lastName => {
+                    let fullName = `${firstName} ${lastName}`;
+                    let access = "User";
+                    let network = "Local";
+                    let status = "Active";
+                    let permissions = "Full";
+                    
+                    if (!["Deepti Jain", "Sneha Jain", "Aditya Jain", "Bhupender Jain", "Eakta Jain"].includes(fullName)) {
+                        access = ["Admin", "User", "Guest"][Math.floor(Math.random() * 3)];
+                        network = ["Local", "Remote", "VPN"][Math.floor(Math.random() * 3)];
+                        status = ["Active", "Inactive", "Pending"][Math.floor(Math.random() * 3)];
+                        permissions = ["Full", "Limited", "Read-Only"][Math.floor(Math.random() * 3)];
+                    }
+                    
+                    data.push({
+                        name: fullName,
+                        id: Math.floor(1000 + Math.random() * 9000),
+                        access: access,
+                        network: network,
+                        status: status,
+                        permissions: permissions
+                    });
+                });
+            });
+            
+            data.sort(() => Math.random() - 0.5);
+            
+            let rows = document.createDocumentFragment();
+            data.forEach(item => {
+                let row = document.createElement("tr");
+                row.innerHTML = `<td>${item.name}</td>
+                                 <td>${item.id}</td>
+                                 <td>${item.access}</td>
+                                 <td>${item.network}</td>
+                                 <td>${item.status}</td>
+                                 <td>${item.permissions}</td>`;
+                rows.appendChild(row);
+            });
+            
+            tableBody.appendChild(rows);
+        }
+        
+        document.addEventListener("DOMContentLoaded", generateUniqueData);
+
+        function searchTable() {
+            let input = document.getElementById("searchBar").value.toLowerCase();
+            let rows = document.querySelectorAll("#databaseTable tbody tr");
+            
+            rows.forEach(row => {
+                let text = row.textContent.toLowerCase();
+                row.style.display = text.includes(input) ? "" : "none";
+            });
+        }
+    </script>
+</body>
+</html>
