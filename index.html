@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background: #121212;
+            color: white;
+            transition: background 0.3s, color 0.3s;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background: #1e1e1e;
+            transition: background 0.3s;
+        }
+        .header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: red;
+        }
+        .header .buttons button {
+            padding: 10px 15px;
+            margin-left: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .sign-in {
+            background: red;
+        }
+        .join {
+            background: white;
+            border: 1px solid gray;
+        }
+        .sign-in a {
+            color: black;
+        }
+        .join a {
+            color: white;
+        }
+        .content {
+            padding: 50px 20px;
+        }
+        .content h1 {
+            font-size: 32px;
+        }
+        .search-box {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .search-box input {
+            width: 50%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid gray;
+            border-radius: 5px;
+        }
+        .placeholder-text {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #b3b3b3;
+        }
+        .placeholder-boxes {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .placeholder-box {
+            margin-bottom: 10px;
+            width: 200px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: white;
+            flex-direction: column;
+        }
+        .footer {
+            padding: 20px;
+            background: #1e1e1e;
+            text-align: center;
+            margin-top: 50px;
+            color: white;
+            transition: background 0.3s, color 0.3s;
+        }
+        .footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            display: inline-block;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .gsimg, .accimg, .dataimg {
+            padding: 7px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">NETMIRROR</div>
+        <div class="buttons">
+            <button class="join">
+                <a href="https://www.netflix.com/login" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: black;">Join</a>
+            </button>
+            <button class="sign-in">
+                <a href="https://www.netflix.com/login" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: white;">Sign In</a>
+            </button>
+        </div>
+    </div>
+    <div class="content">
+        <h1>How can we help?</h1>
+        <div class="search-box">
+            <input type="text" placeholder="Type a question, topic or issue">
+        </div>
+        <p class="placeholder-text">Try searching for account settings, billing help, or parental controls</p>
+        <div class="placeholder-boxes">
+            <a href="https://pcmirror.cc/home?utm_source=home_page" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+                <div class="placeholder-box">
+                    <img src="templates/getting-started.png" alt="Getting Started" width="50" class="gsimg">
+                    <span style="color: white;">Getting Started</span>
+                </div>
+            </a>
+            <a href="https://www.netflix.com/login" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+                <div class="placeholder-box">
+                    <img src="templates/account.png" alt="Account" width="50" class="accimg">
+                    <span style="color: white;">Account</span>
+                </div>
+            </a>
+            <a href="templates/database.html" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+                <div class="placeholder-box">
+                    <img src="templates/database.png" alt="Database" width="50" class="dataimg">
+                    <span style="color: white;">Database</span>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="footer">
+        <p>Questions? Call 000-800-919-1743</p>
+        <p>
+            <a href="https://openconnect.netflix.com/en/faq/">FAQ</a>
+            <a href="https://help.netflix.com/en">Help Centre</a>
+            <a href="https://help.netflix.com/en/legal/termsofuse">Terms of Use</a>
+            <a href="https://help.netflix.com/en/legal/privacy">Privacy</a>
+            <a href="https://help.netflix.com/en/legal/privacy#cookies">Cookie Preferences</a>
+            <a href="https://help.netflix.com/en/legal/corpinfo">Corporate Information</a>
+        </p>
+        <button>🌐 English</button>
+    </div>
+</body>
+</html>
